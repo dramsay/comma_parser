@@ -2,7 +2,7 @@ CommaParser
 ===========
 
 This plugin allows you to accept commas from users for integer fields in 
-an ActiveRecord model. It requires Rails 2.1 or higher.
+an ActiveRecord model.
 
 
 Example
