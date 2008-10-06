@@ -15,21 +15,30 @@ class CommaParserTest < Test::Unit::TestCase
     @country.population = "1,000,000"
     @country.gross_domestic_product = "5,000,000"
     @country.save
-    assert_equal 1000000, @country.population
-    assert_equal 5000000, @country.gross_domestic_product
+    @country.reload
+    assert_equal 1_000_000, @country.population
+    assert_equal 5_000_000, @country.gross_domestic_product
   end
   
   def test_numbers_are_still_saved_correctly
-    @country.population = 1000000
-    @country.gross_domestic_product = 5000000
+    @country.population = 2_000_000
+    @country.gross_domestic_product = 10_000_000
     @country.save
-    assert_equal 1000000, @country.population
-    assert_equal 5000000, @country.gross_domestic_product
+    @country.reload
+    assert_equal 2_000_000, @country.population
+    assert_equal 10_000_000, @country.gross_domestic_product
+    @person.year_end_bonus = "500"
+    @person.save
+    @person.reload
+    assert_equal 500, @person.year_end_bonus
   end
   
   def test_commas_are_not_parsed_without_allow_commas
     @person.annual_income = "50,000"
+    @person.year_end_bonus = "1,000"
     @person.save
+    @person.reload
     assert_equal 50, @person.annual_income
+    assert_equal 1, @person.year_end_bonus
   end
 end

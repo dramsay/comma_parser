@@ -12,6 +12,7 @@ ActiveRecord::Schema.define :version => 0 do
     t.column :first_name, :string, :limit => 25
     t.column :last_name, :string, :limit => 25
     t.column :annual_income, :integer
+    t.column :year_end_bonus, :integer
     t.column :created_at, :datetime
     t.column :updated_at, :datetime
   end
