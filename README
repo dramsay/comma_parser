@@ -1,0 +1,28 @@
+CommaParser
+===========
+
+This plugin allows you to accept commas from users for integer fields in 
+an ActiveRecord model. 
+
+
+Example
+=======
+
+# Table name: cities
+#
+#  id           :integer(11)     not null, primary key
+#  name         :string(50)
+#  population   :integer(11)
+
+class City < ActiveRecord::Base
+  allow_commas :population
+
+
+  # rest of class
+end
+
+Now the user can type population "1,000,000" into a form and it will still 
+save correctly as "1000000" instead of "1". This saves you the hassle of stripping 
+out commas either in JavaScript or in the controller.
+
+Copyright (c) 2008 Doug Ramsay and Intridea, Inc., released under the MIT license
