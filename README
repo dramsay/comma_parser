@@ -4,6 +4,13 @@ CommaParser
 This plugin allows you to accept commas from users for integer fields in 
 an ActiveRecord model.
 
+Installation
+============
+
+For Rails 2.1 and above:
+
+script/plugin install git://github.com/dramsay/comma_parser.git
+
 
 Example
 =======
